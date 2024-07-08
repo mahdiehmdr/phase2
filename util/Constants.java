@@ -1,24 +1,29 @@
 package util;
 
-import Model.Game;
+import Model.*;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import Model.Outputs;
-import Model.RegistryMenu;
-import Model.User;
-import Model.Damage_Heal;
-import Model.Spell;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-
 public class Constants {
-    public static final User hostPlayer = new User("mahdieh", "mhd", "email", "mmm");
-    public static final User guestPlayer = new User("parnia", "rzie", "yahoo", "ppp");
-    public static final RegistryMenu registryMenu = new RegistryMenu();
-    public static final Outputs outputs = new Outputs();
+    public static final User hostPlayer = new User("mahdieh","mhd","email","mmm"), guestPlayer=new User("parnia","rzie","yahoo","ppp");
+    public static User loggedInUser;
+    public static final RegistryMenu registryMenu=new RegistryMenu();
+    public static final ProfileMenu profileMenu = new ProfileMenu();
+    public static final MainMenu mainMenu = new MainMenu();
+    public static final Outputs outputs=new Outputs();
     public static Game game = new Game();
-
-
+    public static boolean login(String username, String password, Label label){
+        User user = registryMenu.findUserByUsername(username);
+        boolean problem = true;
+        if(password.equals(user.getPassword())){
+            loggedInUser = user;
+            label.setText(outputs.loggedInSuccessfully);
+            problem = false;
+        }
+        return problem;
+    }
     public static final Damage_Heal QUILIN = new Damage_Heal("QUILIN", 37, 4, 48, 5, 50, 245);
     public static final Damage_Heal HIPPOGRIFF = new Damage_Heal("HIPPOGRIFF", 28, 4, 32, 3, 30, 108);
     public static final Damage_Heal PHOENIX = new Damage_Heal("PHOENIX", 35, 5, 50, 7, 91, 315);
@@ -86,7 +91,5 @@ public class Constants {
     public static final Image ronProf = new Image(Constants.class.getResourceAsStream("/cards/ronProf.png"));
     public static final Image hermioneProf = new Image(Constants.class.getResourceAsStream("/cards/hermioneProf.png"));
     public static final Image dracoProf = new Image(Constants.class.getResourceAsStream("/cards/dracoProf.png"));
-
-
 
 }
