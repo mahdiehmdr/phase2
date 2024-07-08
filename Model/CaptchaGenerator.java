@@ -3,7 +3,6 @@ package Model;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-import java.util.Scanner;
 public class CaptchaGenerator {
     public String generateRandomStringForPassword(){
         String upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
@@ -35,26 +34,27 @@ public class CaptchaGenerator {
         for(int i = 2; i < length; i++)
             sb.append(allChars.charAt(random.nextInt(allChars.length())));
         String result = sb.toString();
-        return new String(result);
+        return result;
     }
-    private void asciiArt(String str){
-        int width = 100;
-        int height = 30;
+    public String asciiArt(){
+        String str = generateRandomStringForCaptcha();
+        int width = 10;
+        int height = 20;
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
-        g.setFont(new Font("Sanserif", Font.BOLD, 24));
+        g.setFont(new Font("Monospaced", Font.PLAIN, 12));
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        graphics.drawString(str, 10, 20);
+        graphics.drawString(str, 2, 16);
+        StringBuilder stringBuilder = new StringBuilder();
         for(int y = 0; y < height; y++){
-            StringBuilder stringBuilder = new StringBuilder();
             for(int x = 0; x < width; x++){
                 stringBuilder.append(image.getRGB(x, y) == -16777216 ? " " : randomChar());
             }
-            if(stringBuilder.toString().trim().isEmpty())
-                continue;
-            System.out.println(stringBuilder);
+            stringBuilder.append('\n');
         }
+        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
     private char randomChar(){
         String upperCase = "QWERTYUIOPASDFGHJKLZXCVBNM";
@@ -64,36 +64,41 @@ public class CaptchaGenerator {
         int i = random.nextInt(62);
         return allChars.charAt(i);
     }
-    public void asciiArtCaptcha(Scanner scanner){
-        String captcha = generateRandomStringForCaptcha();
-        asciiArt(captcha);
-        String answer = scanner.nextLine();
-        if(!answer.equals(captcha))
-            asciiArtCaptcha(scanner);
-    }
-    public void simpleCaptcha(Scanner scanner){
+    public String simpleCaptcha(){
         Random random = new Random();
         int num1 = random.nextInt(20);
         int num2 = random.nextInt(10);
         int n = random.nextInt();
-        int result;
         String function;
-        if(n % 3 == 0){
-            function = "PLUS";
-            result = (num1 + num2);
+        if(n % 3 == 0) function = "PLUS";
+        else if(n % 3 == 1) function = "MINUS";
+        else function = "MULTIPLY BY";
+        String captcha = new String(num1 + " " + function + " " + num2);
+        return captcha;
+    }
+//    public void asciiArtCaptcha(Scanner scanner){
+//        String captcha = generateRandomStringForCaptcha();
+//        asciiArt(captcha);
+//        String answer = scanner.nextLine();
+//        if(!answer.equals(captcha))
+//            asciiArtCaptcha(scanner);
+//    }
+    public int resultOfSimpleCaptcha(String a){
+        String[] parts = a.split(" ");
+        int result = 0;
+        int num1 = Integer.parseInt(parts[0]);
+        if(parts[1].equals("PLUS")){
+            int num2 = Integer.parseInt(parts[2]);
+            result = num1 + num2;
         }
-        else if(n % 3 == 1){
-            function = "MINUS";
-            result = (num1 - num2);
+        else if(parts[1].equals("MINUS")){
+            int num2 = Integer.parseInt(parts[2]);
+            result = num1 - num2;
         }
-        else{
-            function = "MULTIPLY BY";
-            result = (num1 * num2);
+        else if(parts[1].equals("MULTIPLY")){
+            int num2 = Integer.parseInt(parts[3]);
+            result = num1 * num2;
         }
-        System.out.println(num1 + " " + function + " " + num2);
-        String answer1 = scanner.nextLine();
-        int answer = Integer.parseInt(answer1);
-        if(answer != result)
-            simpleCaptcha(scanner);
+        return result;
     }
 }
