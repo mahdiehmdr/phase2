@@ -1,52 +1,57 @@
 package Model;
 
+import javafx.scene.control.Label;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistryMenu {
     private ArrayList<User> users = new ArrayList<>();
-    private User signedUpUser = null;
+    static private User signedUpUser = null;
     final protected Outputs output = new Outputs();
-    private ArrayList<String> gamesHistory = new ArrayList<>();
-    public void signup(Matcher matcher, Scanner scanner){
-        if(!matcher.matches()) System.out.println("invalid input!");
-        else{
-            String username = matcher.group(1);
-            String password = matcher.group(2);
-            String passwordRepetition = matcher.group(3);
-            String email = matcher.group(4);
-            String nickname = matcher.group(5);
-            if(username.isEmpty() || password.isEmpty() || passwordRepetition.isEmpty() || email.isEmpty() || nickname.isEmpty())
-                System.out.println(output.emptyField);
-            else if(!password.equals(passwordRepetition))
-                System.out.println(output.wrongPasswordRepetition);
-            else if(!isUsernameCorrect(username))
-                System.out.println(output.wrongUsernameFormat);
-            else if(!isUsernameNew(username)) System.out.println(output.duplicateUsername);
-            else if(!isEmailCorrect(email)) System.out.println(output.wrongEmailFormat);
-            else if(password.length() < 8 || password.length() > 32) System.out.println(output.passwordLengthFault);
-            else if(!doesPasswordContainsLowerCase(password) || !doesPasswordContainUpperCase(password)) System.out.println(output.passwordDoesNotContainUpperOrLowerCase);
-            else if(!doesPasswordContainNumber(password)) System.out.println(output.passwordDoesNotContainNumber);
-            else if(!passwordContainsCharacter(password)) System.out.println(output.passwordDoesNotContainCharacters);
-            else{
-                User newUser = new User(username, password, email, nickname);
-                signedUpUser = newUser;
-                users.add(newUser);
-                System.out.println(output.successfullyAccount);
-                String chooseSecurityQuestion = "question pick -q (\\S+) -a (\\S+) -c (\\S+)";
-                String command;
-                while(true){
-                    command = scanner.nextLine();
-                    if(command.matches(chooseSecurityQuestion)){
-                        matcher = getCommandMatcher(command, chooseSecurityQuestion);
-                        chooseSecurityQuestion(matcher, scanner);
-                        break;
-                    }
-                    else System.out.println("You have to choose your security question first!");
-                }
+    final private ArrayList<String> gamesHistory = new ArrayList<>();
+    public boolean signup(String username, String password, String passwordRepetition, String email, String nickname, Label label){
+            if(username.isEmpty() || password.isEmpty() || passwordRepetition.isEmpty() || email.isEmpty() || nickname.isEmpty()) {
+                label.setText(output.emptyField);
+                return false;
             }
-        }
+            else if(!password.equals(passwordRepetition)) {
+                label.setText(output.wrongPasswordRepetition);
+                return false;
+            }
+            else if(!isUsernameCorrect(username)) {
+                label.setText(output.wrongUsernameFormat);
+                return false;
+            }
+            else if(!isUsernameNew(username)){
+                label.setText(output.duplicateUsername);
+                return false;
+            }
+            else if(!isEmailCorrect(email)){
+                label.setText(output.wrongEmailFormat);
+                return false;
+            }
+            else if(password.length() < 8 || password.length() > 32){
+                label.setText(output.passwordLengthFault);
+                return false;
+            }
+            else if(!doesPasswordContainsLowerCase(password) || !doesPasswordContainUpperCase(password)){
+                label.setText(output.passwordDoesNotContainUpperOrLowerCase);
+                return false;
+            }
+            else if(!doesPasswordContainNumber(password)) {
+                label.setText(output.passwordDoesNotContainNumber);
+                return false;
+            }
+            else if(!passwordContainsCharacter(password)){
+                label.setText(output.passwordDoesNotContainCharacters);
+                return false;
+            }
+            User newUser = new User(username, password, email, nickname);
+            signedUpUser = newUser;
+            users.add(newUser);
+            return true;
     }
     public void signupWithRandomPassword(Matcher matcher, Scanner scanner){
         if(!matcher.matches()) System.out.println("invalid input!");
@@ -77,7 +82,6 @@ public class RegistryMenu {
                     command = scanner.nextLine();
                     if(command.matches(chooseSecurityQuestion)){
                         matcher = getCommandMatcher(command, chooseSecurityQuestion);
-                        chooseSecurityQuestion(matcher, scanner);
                         break;
                     }
                     else System.out.println("You have to choose your security question first!");
@@ -85,31 +89,26 @@ public class RegistryMenu {
             }
         }
     }
-    public void chooseSecurityQuestion(Matcher matcher, Scanner scanner){
-        if(!matcher.matches() || signedUpUser == null) System.out.println("invalid input!");
+    public boolean chooseSecurityQuestion(String questionNumber, String answer, String answerConfirmation, Label label){
+        boolean isEverythingTrue = false;
+        if(questionNumber.isEmpty() || answer.isEmpty() || answerConfirmation.isEmpty()) label.setText(output.emptyField);
+        else if(!answerConfirmation.equals(answer)) label.setText(output.wrongAnswerRepetition);
         else{
-            String questionNumber = matcher.group(1);
-            String answer = matcher.group(2);
-            String answerConfirmation = matcher.group(3);
-            while(!answer.equals(answerConfirmation)) {
-                System.out.println(output.wrongAnswerRepetition);
-                String line = scanner.nextLine();
-                String[] parts = line.split(" ");
-                answer = parts[0];
-                answerConfirmation = parts[1];
+            if(questionNumber.equals("1")){
+                signedUpUser.setNumberOfQuestion(1);
+                isEverythingTrue = true;
             }
-            if(questionNumber.equals("1")) signedUpUser.setNumberOfQuestion(1);
-            if(questionNumber.equals("2")) signedUpUser.setNumberOfQuestion(2);
-            if(questionNumber.equals("3")) signedUpUser.setNumberOfQuestion(3);
-            CaptchaGenerator captchaGenerator = new CaptchaGenerator();
-            Random random = new Random();
-            int i = random.nextInt();
-            if(i % 2 == 0) captchaGenerator.simpleCaptcha(scanner);
-            else captchaGenerator.asciiArtCaptcha(scanner);
-            signedUpUser.setAnswer(answer);
-            System.out.println("welcome " + signedUpUser.getUsername() + "!");
-            signedUpUser = null;
+            else if(questionNumber.equals("2")){
+                signedUpUser.setNumberOfQuestion(2);
+                isEverythingTrue = true;
+            }
+            else if(questionNumber.equals("3")){
+                signedUpUser.setNumberOfQuestion(3);
+                isEverythingTrue = true;
+            }
+            else label.setText("Wrong number!");
         }
+        return isEverythingTrue;
     }
     public void forgotPassword(Matcher matcher, Scanner scanner){
         if(!matcher.matches()) System.out.println("invalid input!");
