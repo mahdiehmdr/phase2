@@ -27,7 +27,6 @@ public class StarterPage {
             e.printStackTrace();
         }
     }
-
     @FXML
     public void loginBtn(ActionEvent event) {
         try {
@@ -36,26 +35,30 @@ public class StarterPage {
             e.printStackTrace();
         }
     }
-
+    @FXML
+    private void exitBTN(){
+        try{
+            Platform.exit();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     private void switchScene(ActionEvent event, String fxmlFile) throws IOException {
         Parent newPage = FXMLLoader.load(getClass().getResource(fxmlFile));
         Scene newScene = new Scene(newPage);
         newScene.getStylesheets().add(getClass().getResource("CSS/Hello.css").toExternalForm());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         stage.setScene(newScene);
         stage.setResizable(true);
         stage.show();
-
         newScene.setOnKeyPressed(this::handleKeyPressed);
     }
-
     private void handleKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case ESCAPE:
                 Platform.exit();
                 break;
-            // Handle other keys if necessary
             default:
                 break;
         }
