@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameTimeLine">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0">
+         <image>
+            <Image url="@gameMenuPhoto.jpg" />
+         </image>
+      </ImageView>
+      <GridPane GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="374.5" minHeight="10.0" prefHeight="253.99998474121094" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="365.6666717529297" minHeight="10.0" prefHeight="294.00001525878906" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="292.5" minHeight="10.0" prefHeight="252.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="1200.0" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@shine.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <GridPane prefHeight="296.0" prefWidth="1200.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="G1" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H1" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H2" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H3" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="3">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H4" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="4">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H5" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="5">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H6" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="6">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H7" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="7">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H8" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="8">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H9" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="9">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H10" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="10">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H11" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="11">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H12" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="12">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H13" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="13">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H14" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="14">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H15" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="15">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G2" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G3" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G4" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G5" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G6" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G7" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G8" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G9" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G10" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="10" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G11" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="11" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G12" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="12" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G13" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="13" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G14" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="14" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G15" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="15" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G16" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="16" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H16" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="16">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H17" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="17">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G17" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="17" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H18" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="18">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G18" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="18" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H19" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="19">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G19" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="19" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H20" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="20">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G20" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="20" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="H21" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="21">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="G21" fitHeight="73.0" fitWidth="51.0" GridPane.columnIndex="21" GridPane.rowIndex="2">
+                     <image>
+                        <Image url="@block.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.6666870117188" minWidth="10.0" prefWidth="888.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.3333129882812" minWidth="10.0" prefWidth="312.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="107.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="153.5" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="56.5" minHeight="10.0" prefHeight="56.5" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="HD1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="HD2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="HD3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="HD4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="HD5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="HD6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="round" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.3333740234375" minWidth="10.0" prefWidth="172.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="131.5" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.333251953125" minWidth="0.0" prefWidth="8.6666259765625" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="26.000000655651093" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="204.5" minHeight="10.0" prefHeight="126.5" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="194.0" minHeight="0.0" prefHeight="10.5" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="117.5" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="hostProf" fitHeight="100.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@dracoProf.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="hostName" text="host player" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="59.3333740234375" minWidth="1.3333740234375" prefWidth="10.6666259765625" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.6666259765625" minWidth="10.0" prefWidth="121.3333740234375" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="hostHP" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="hostDamage" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.6666870117188" minWidth="10.0" prefWidth="311.3333435058594" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="889.3333435058594" minWidth="10.0" prefWidth="888.6666564941406" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                        <ImageView fx:id="GD6" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="GD5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="GD4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="GD3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="GD2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="GD1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@../cards/block.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="0.0" prefWidth="0.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="158.3333282470703" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.00000762939453" minWidth="10.0" prefWidth="153.6666717529297" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="74.6666259765625" minHeight="0.0" prefHeight="46.16668701171875" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="80.33331298828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.5" minHeight="0.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.5" minHeight="10.0" prefHeight="72.33331298828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="23.33331298828125" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="guestProf" fitHeight="100.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <image>
+                              <Image url="@hermoineProf.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="guestName" text="guest player" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.66667175292969" minWidth="10.0" prefWidth="27.33333396911621" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.66666412353516" minWidth="10.0" prefWidth="130.6666660308838" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="45.0" minHeight="25.5" prefHeight="43.66668701171875" />
+                            <RowConstraints maxHeight="29.5" minHeight="0.0" prefHeight="4.8333740234375" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="21.1666259765625" minHeight="0.0" prefHeight="21.1666259765625" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="28.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="guestHP" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="guestDamage" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </GridPane>
+       <ImageView fx:id="voldy" fitHeight="100.0" fitWidth="100.0" visible="false">
+           <image>
+               <Image url="@timeline.png" />
+           </image>
+         <effect>
+            <DropShadow />
+         </effect>
+       </ImageView>
+   </children>
+</GridPane>

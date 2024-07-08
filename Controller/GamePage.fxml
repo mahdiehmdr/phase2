@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameMenu">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+  <children>
+    <ImageView fitHeight="800.0" fitWidth="1200.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <image>
+        <Image url="@gameMenuPhoto.jpg" />
+      </image>
+    </ImageView>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#868686" height="800.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="1200.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <Text fx:id="error" fill="#c80000" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="930.8034057617188" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="10.0" />
+         </GridPane.margin>
+      </Text>
+    <GridPane prefHeight="700.0" prefWidth="1200.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1090.0" minWidth="10.0" prefWidth="619.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="760.0" minWidth="10.0" prefWidth="581.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints maxHeight="729.0" minHeight="10.0" prefHeight="102.16666412353516" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="729.0" minHeight="10.0" prefHeight="97.83334350585938" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="615.0" minHeight="10.0" prefHeight="457.1666564941406" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="615.0" minHeight="10.0" prefHeight="99.6666259765625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="615.0" minHeight="10.0" prefHeight="42.83331298828125" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+        <Text fx:id="modePick" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the game mode:" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+          <font>
+            <Font size="26.0" />
+          </font>
+        </Text>
+        <GridPane GridPane.columnIndex="1">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+            <Button fx:id="doubleBtn" mnemonicParsing="false" onAction="#doubleBtn" prefHeight="40.0" prefWidth="110.0" text="Double" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="betBtn" mnemonicParsing="false" onAction="#betBtn" prefHeight="40.0" prefWidth="110.0" text="Bet" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+          </children>
+        </GridPane>
+        <GridPane GridPane.rowIndex="2">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+            <ImageView fx:id="ronIm" fitHeight="390.0" fitWidth="232.0" visible="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <image>
+                <Image url="@ron.png" />
+              </image>
+              <effect>
+                <DropShadow />
+              </effect>
+            </ImageView>
+            <ImageView fx:id="dracoIm" fitHeight="390.0" fitWidth="232.0" visible="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <image>
+                <Image url="@draco.png" />
+              </image>
+              <effect>
+                <DropShadow />
+              </effect>
+            </ImageView>
+          </children>
+        </GridPane>
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <children>
+            <ImageView fx:id="harryIm" fitHeight="390.0" fitWidth="232.0" visible="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <image>
+                <Image url="@harry.png" />
+              </image>
+              <effect>
+                <DropShadow />
+              </effect>
+            </ImageView>
+            <ImageView fx:id="hermioneIm" fitHeight="390.0" fitWidth="232.0" visible="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+              <image>
+                <Image url="@hermione.png" />
+              </image>
+              <effect>
+                <DropShadow />
+              </effect>
+            </ImageView>
+          </children>
+        </GridPane>
+            <GridPane prefHeight="41.0" prefWidth="581.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="guestAdd" onAction="#guestAdd" GridPane.columnIndex="1" />
+                  <TextField fx:id="hostAdd" onAction="#hostAdd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="hostCoin" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="How much is the host paying?" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="guestCoin" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="How much is the guest paying?" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+            <GridPane prefHeight="139.0" prefWidth="619.0" GridPane.rowIndex="3">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="hostCharPick" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Choos the host's character:" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="guestCharPick" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose the guest's character:" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="guestChar" onAction="#guestChar" GridPane.columnIndex="1" />
+                  <TextField fx:id="hostChar" onAction="#hostChar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+      </children>
+    </GridPane>
+  </children>
+</GridPane>
