@@ -181,7 +181,7 @@ public class Game {
     public void setHostPlaying(){isHostPlaying=true;}
     public void setGuestPlaying(){isHostPlaying=false;}
     public boolean isHostPlaying(){return isHostPlaying;}
-    public void deploy(String command){
+    public void deploy(String command, String answer){
         if(command.equals("next round"))
             return;
         else if(command.equals("end game")){
@@ -228,7 +228,7 @@ public class Game {
         else if(spellMatcher.matches()){
             if(isHostPlaying){
                 Spell card=(Spell) getHostCardByName(spellMatcher.group("name"));
-                //card.Deploy(hostTimeLine,guestTimeLine,hostCards,guestCards,true,scanner,guestPlayer,hostPlayer,round);
+                card.Deploy(hostTimeLine,guestTimeLine,hostCards,guestCards,true,Constants.guestPlayer,Constants.hostPlayer,round,answer);
                 Constants.hostPlayer.removeCardFromDeck(card);
                 for(int i=0; i<6; i++)
                     if(hostCards[i]!=null&&hostCards[i].getName().equals(card.getName())) {
@@ -240,7 +240,7 @@ public class Game {
             }
             if(!isHostPlaying){
                 Spell card=(Spell) getGuestCardByName(spellMatcher.group("name"));
-                //card.Deploy(hostTimeLine,guestTimeLine,hostCards,guestCards,false,scanner,guestPlayer,hostPlayer,round);
+                card.Deploy(hostTimeLine,guestTimeLine,hostCards,guestCards,false,Constants.guestPlayer,Constants.hostPlayer,round,answer);
                 Constants.guestPlayer.removeCardFromDeck(card);
                 for(int i=0; i<6; i++)
                     if(guestCards[i]!=null&&guestCards[i].getName().equals(card.getName())) {
