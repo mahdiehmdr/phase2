@@ -55,7 +55,10 @@ public class GameTimeLine implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Constants.BackGround.pause();
-        mediaPlayer.play();
+        if(!Constants.mute) {
+            mediaPlayer.play();
+            mediaPlayer.setVolume(Constants.volume);
+        }
         Constants.game.run(Constants.cards, Constants.spells, Constants.registryMenu);
 
         ImageView[] hostImageViews = {H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21};
@@ -150,7 +153,10 @@ public class GameTimeLine implements Initializable {
                 Constants.game.deploy("place card " + card.getName() + " in block " + block,"");
             Constants.game.checkTimeLine();
             MediaPlayer media=new MediaPlayer(Constants.drop);
-            media.play();
+            if(!Constants.mute){
+                media.play();
+                media.setVolume(Constants.volume);
+            }
             scan();
             if(Constants.game.isHostPlaying())
                 Constants.game.setGuestPlaying();
@@ -348,8 +354,10 @@ public class GameTimeLine implements Initializable {
                 try {
                     switchScene("PrizePage.fxml");
                     mediaPlayer.pause();
-                    if(!Constants.mute)
+                    if(!Constants.mute) {
                         Constants.restartBackGroundMedia();
+                        Constants.BackGround.setVolume(Constants.volume);
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
