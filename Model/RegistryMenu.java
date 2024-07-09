@@ -10,7 +10,7 @@ public class RegistryMenu {
     private ArrayList<User> users = new ArrayList<>();
     static private User signedUpUser = null;
     final protected Outputs output = new Outputs();
-    final private ArrayList<String> gamesHistory = new ArrayList<>();
+    final static private ArrayList<String> gamesHistory = new ArrayList<>();
     public boolean signup(String username, String password, String passwordRepetition, String email, String nickname, Label label){
             if(username.isEmpty() || password.isEmpty() || passwordRepetition.isEmpty() || email.isEmpty() || nickname.isEmpty()) {
                 label.setText(output.emptyField);
@@ -96,14 +96,17 @@ public class RegistryMenu {
         else{
             if(questionNumber.equals("1")){
                 signedUpUser.setNumberOfQuestion(1);
+                signedUpUser.setAnswer(answer);
                 isEverythingTrue = true;
             }
             else if(questionNumber.equals("2")){
                 signedUpUser.setNumberOfQuestion(2);
+                signedUpUser.setAnswer(answer);
                 isEverythingTrue = true;
             }
             else if(questionNumber.equals("3")){
                 signedUpUser.setNumberOfQuestion(3);
+                signedUpUser.setAnswer(answer);
                 isEverythingTrue = true;
             }
             else label.setText("Wrong number!");
