@@ -12,7 +12,7 @@ public class Spell extends Card{
     public Spell(String name){
         this.name = name;
     }
-    public void Deploy(Block[] hostTimeLine, Block[] guestTimeLine, Card[] hostCards, Card[] guestCards, boolean isHostPlaying, Scanner scanner, User guestPlayer, User hostPlayer, int round){
+    public void Deploy(Block[] hostTimeLine, Block[] guestTimeLine, Card[] hostCards, Card[] guestCards, boolean isHostPlaying, User guestPlayer, User hostPlayer, int round, String answer){
         if(name.equals("PEEVES")){//تغییردهنده مکان حفره
             for(int i=0; i<21; i++){
                 if(isHostPlaying)
@@ -51,9 +51,7 @@ public class Spell extends Card{
         } else if(name.equals("CORNISH PIXIE")){//کپی کننده
             System.out.println("which card do you wish to copy?");
             if(isHostPlaying){
-                String answer;
                 while (true) {
-                    answer = scanner.nextLine();
                     if((answer.equals("1")||answer.equals("2")||answer.equals("3")||answer.equals("4")||answer.equals("5"))&&hostCards[Integer.parseInt(answer)-1]!=null)
                         break;
                     System.out.println("invalid number! try again.");
@@ -61,9 +59,7 @@ public class Spell extends Card{
                 hostCards[5]=hostCards[Integer.parseInt(answer)-1];
             }
             else {
-                String answer;
                 while (true) {
-                    answer = scanner.nextLine();
                     if((answer.equals("1")||answer.equals("2")||answer.equals("3")||answer.equals("4")||answer.equals("5"))&&guestCards[Integer.parseInt(answer)-1]!=null)
                         break;
                     System.out.println("invalid number! try again.");
@@ -86,9 +82,7 @@ public class Spell extends Card{
         }else if(name.equals("MERPEOPLE")){//حذف کارت از دست حریف
             System.out.println("which of you opponent's cards do you wish to have?");
             if(isHostPlaying){
-                String answer;
                 while (true){
-                    answer=scanner.nextLine();
                     if(guestCards[Integer.parseInt(answer)-1]!=null||(answer.equals("1")||answer.equals("2")||answer.equals("3")||answer.equals("4")||answer.equals("5")||answer.equals("6")))
                         break;
                     System.out.println("invalid number! try again.");
@@ -97,9 +91,7 @@ public class Spell extends Card{
                 guestCards[Integer.parseInt(answer)-1]=null;
             }
             else {
-                String answer;
                 while (true){
-                    answer=scanner.nextLine();
                     if(hostCards[Integer.parseInt(answer)-1]!=null||(answer.equals("1")||answer.equals("2")||answer.equals("3")||answer.equals("4")||answer.equals("5")||answer.equals("6")))
                         break;
                     System.out.println("invalid number! try again.");
