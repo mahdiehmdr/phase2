@@ -4,21 +4,25 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import util.Constants;
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import java.io.IOException;
 
-public class StarterPage {
+public class StarterPage implements Initializable {
     @FXML
     public void signupBtn(ActionEvent event) {
         try {
@@ -62,5 +66,10 @@ public class StarterPage {
             default:
                 break;
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Constants.BackGround.play();
     }
 }
