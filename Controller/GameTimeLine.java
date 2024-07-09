@@ -15,6 +15,7 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
@@ -46,12 +47,15 @@ public class GameTimeLine implements Initializable {
     ImageView H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21,
             G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12, G13, G14, G15, G16, G17, G18, G19, G20, G21,
             HD1, HD2, HD3, HD4, HD5, HD6, GD1, GD2, GD3, GD4, GD5, GD6, hostProf, guestProf, voldy;
+    MediaPlayer mediaPlayer=new MediaPlayer(Constants.gameBackGroung);
 
     private int draggingDeckIndex;
     private String draggingType;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Constants.BackGround.pause();
+        mediaPlayer.play();
         Constants.game.run(Constants.cards, Constants.spells, Constants.registryMenu);
 
         ImageView[] hostImageViews = {H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21};
@@ -145,6 +149,8 @@ public class GameTimeLine implements Initializable {
             else
                 Constants.game.deploy("place card " + card.getName() + " in block " + block,"");
             Constants.game.checkTimeLine();
+            MediaPlayer media=new MediaPlayer(Constants.drop);
+            media.play();
             scan();
             if(Constants.game.isHostPlaying())
                 Constants.game.setGuestPlaying();
@@ -341,6 +347,9 @@ public class GameTimeLine implements Initializable {
             } else {
                 try {
                     switchScene("PrizePage.fxml");
+                    mediaPlayer.pause();
+                    if(!Constants.mute)
+                        Constants.restartBackGroundMedia();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
