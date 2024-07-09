@@ -1,3 +1,4 @@
+
 package util;
 
 import Model.*;
@@ -61,21 +62,21 @@ public class Constants {
                     GOBLIN, PATRONUS, FLUFFY)
     );
     public static final Random random=new Random();
-    public static final Image quilin = new Image(Constants.class.getResourceAsStream("/cards/quilin.png"));
-    public static final Image hippogriff= new Image(Constants.class.getResourceAsStream("/cards/hippogriff.png"));
-    public static final Image phonix = new Image(Constants.class.getResourceAsStream("/cards/phonix.png"));
-    public static final Image centaur = new Image(Constants.class.getResourceAsStream("/cards/centaur.png"));
-    public static final Image unicorn = new Image(Constants.class.getResourceAsStream("/cards/unicorn.png"));
-    public static final Image niffler = new Image(Constants.class.getResourceAsStream("/cards/niffler.png"));
-    public static final Image thestral = new Image(Constants.class.getResourceAsStream("/cards/thestral.png"));
-    public static final Image dobby = new Image(Constants.class.getResourceAsStream("/cards/elf.png"));
-    public static final Image deatheator = new Image(Constants.class.getResourceAsStream("/cards/deatheator.png"));
-    public static final Image boggart = new Image(Constants.class.getResourceAsStream("/cards/boggart.png"));
-    public static final Image willow = new Image(Constants.class.getResourceAsStream("/cards/werwolf.png"));
-    public static final Image aragog = new Image(Constants.class.getResourceAsStream("/cards/aragog.png"));
-    public static final Image vampire = new Image(Constants.class.getResourceAsStream("/cards/vampire.png"));
-    public static final Image basillisk = new Image(Constants.class.getResourceAsStream("/cards/basillisk.png"));
-    public static final Image dementor = new Image(Constants.class.getResourceAsStream("/cards/dementor.png"));
+    public static final Image quilin = new Image(Constants.class.getResourceAsStream("/cards/quilin.jpg"));
+    public static final Image hippogriff= new Image(Constants.class.getResourceAsStream("/cards/hippogriff.jpg"));
+    public static final Image phonix = new Image(Constants.class.getResourceAsStream("/cards/phonix.jpg"));
+    public static final Image centaur = new Image(Constants.class.getResourceAsStream("/cards/centaur.jpg"));
+    public static final Image unicorn = new Image(Constants.class.getResourceAsStream("/cards/unicorn.jpg"));
+    public static final Image niffler = new Image(Constants.class.getResourceAsStream("/cards/niffler.jpg"));
+    public static final Image thestral = new Image(Constants.class.getResourceAsStream("/cards/thestral.jpg"));
+    public static final Image dobby = new Image(Constants.class.getResourceAsStream("/cards/elf.jpg"));
+    public static final Image deatheator = new Image(Constants.class.getResourceAsStream("/cards/deatheator.jpg"));
+    public static final Image boggart = new Image(Constants.class.getResourceAsStream("/cards/boggart.jpg"));
+    public static final Image willow = new Image(Constants.class.getResourceAsStream("/cards/werwolf.jpg"));
+    public static final Image aragog = new Image(Constants.class.getResourceAsStream("/cards/aragog.jpg"));
+    public static final Image vampire = new Image(Constants.class.getResourceAsStream("/cards/vampire.jpg"));
+    public static final Image basillisk = new Image(Constants.class.getResourceAsStream("/cards/basillisk.jpg"));
+    public static final Image dementor = new Image(Constants.class.getResourceAsStream("/cards/dementor.jpg"));
     public static final Image peeves = new Image(Constants.class.getResourceAsStream("/cards/peeves.png"));
     public static final Image sectumsempra = new Image(Constants.class.getResourceAsStream("/cards/sectumsempra.png"));
     public static final Image pixie = new Image(Constants.class.getResourceAsStream("/cards/pixie.png"));
@@ -85,7 +86,7 @@ public class Constants {
     public static final Image goblin = new Image(Constants.class.getResourceAsStream("/cards/goblin.png"));
     public static final Image patronus = new Image(Constants.class.getResourceAsStream("/cards/patronus.png"));
     public static final Image fluffy = new Image(Constants.class.getResourceAsStream("/cards/fluffy.png"));
-    public static final Image werwolf = new Image(Constants.class.getResourceAsStream("/cards/werwolf.png"));
+    public static final Image werwolf = new Image(Constants.class.getResourceAsStream("/cards/werwolf.jpg"));
     public static final Image block = new Image(Constants.class.getResourceAsStream("/cards/block.png"));
     public static final Image harryProf = new Image(Constants.class.getResourceAsStream("/cards/harryProf.png"));
     public static final Image ronProf = new Image(Constants.class.getResourceAsStream("/cards/ronProf.png"));
