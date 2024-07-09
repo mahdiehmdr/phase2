@@ -442,7 +442,7 @@ public class GameTimeLine implements Initializable {
                 return Constants.quilin;
             case "HIPPOGRIFF":
                 return Constants.hippogriff;
-            case "PHOENIX":
+            case "PHONIX":
                 return Constants.phonix;
             case "CENTAUR":
                 return Constants.centaur;
@@ -454,17 +454,17 @@ public class GameTimeLine implements Initializable {
                 return Constants.thestral;
             case "HOUSEELF":
                 return Constants.dobby;
-            case "DEATHEATER":
+            case "DEATHEATOR":
                 return Constants.deatheator;
             case "BOGGART":
                 return Constants.boggart;
-            case "WEREWOLF":
+            case "WERWOLF":
                 return Constants.werwolf;
             case "ARAGOG":
                 return Constants.aragog;
             case "VAMPIRE":
                 return Constants.vampire;
-            case "BASILISK":
+            case "BASILLISK":
                 return Constants.basillisk;
             case "DEMENTOR":
                 return Constants.dementor;
