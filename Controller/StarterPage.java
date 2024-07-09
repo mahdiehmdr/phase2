@@ -23,10 +23,16 @@ import java.util.regex.Pattern;
 import java.io.IOException;
 
 public class StarterPage implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Constants.getInformationFromFile();
+        Constants.BackGround.play();
+    }
     @FXML
     public void signupBtn(ActionEvent event) {
         try {
             switchScene(event, "SignupPage.fxml");
+            Constants.getInformationFromFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,18 +41,15 @@ public class StarterPage implements Initializable {
     public void loginBtn(ActionEvent event) {
         try {
             switchScene(event, "LoginPage.fxml");
+            Constants.getInformationFromFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     @FXML
     private void exitBTN(){
-        try{
-            Platform.exit();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+       // Constants.writeInformationInFile();
+        Platform.exit();
     }
     private void switchScene(ActionEvent event, String fxmlFile) throws IOException {
         Parent newPage = FXMLLoader.load(getClass().getResource(fxmlFile));
@@ -66,10 +69,5 @@ public class StarterPage implements Initializable {
             default:
                 break;
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Constants.BackGround.play();
     }
 }
