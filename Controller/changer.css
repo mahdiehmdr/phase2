@@ -1,0 +1,12 @@
+#newUsername{
+    -fx-text-fill: white;
+}
+#newPass{
+    -fx-text-fill: white;
+}
+#oldPass{
+    -fx-text-fill: white;
+}
+#newEmail{
+    -fx-text-fill: white;
+}
