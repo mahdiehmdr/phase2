@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class Constants {
     public static final User hostPlayer = new User("mahdieh","mhd","email","mmm"), guestPlayer=new User("parnia","rzie","yahoo","ppp");
     public static User loggedInUser;
@@ -25,6 +28,25 @@ public class Constants {
         }
         return problem;
     }
+    public static MediaPlayer getMediaPlayer(String path){
+        String mediaPath = Constants.class.getResource(path).toExternalForm();
+        Media media = new Media(mediaPath);
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        return mediaPlayer;
+    }
+    public static final boolean mute=false;
+    public static final double volume=1;
+    public static MediaPlayer BackGround=getMediaPlayer("/cards/01 - Prologue.mp3");
+    public static final MediaPlayer GameBackGround=getMediaPlayer("/cards/16 - The Chess Game.mp3");
+    public static final MediaPlayer Drop=getMediaPlayer("/cards/drop.mp3");
+    public static Media drop=Drop.getMedia();
+    public static Media gameBackGroung=GameBackGround.getMedia();
+    public static void restartBackGroundMedia(){
+        BackGround=getMediaPlayer("/cards/01 - Prologue.mp3");
+        BackGround.play();
+    }
+
+
     public static final Damage_Heal QUILIN = new Damage_Heal("QUILIN", 37, 4, 48, 5, 50, 245);
     public static final Damage_Heal HIPPOGRIFF = new Damage_Heal("HIPPOGRIFF", 28, 4, 32, 3, 30, 108);
     public static final Damage_Heal PHOENIX = new Damage_Heal("PHOENIX", 35, 5, 50, 7, 91, 315);
