@@ -7,7 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
@@ -30,8 +33,14 @@ import util.Constants;
 public class GameTimeLine implements Initializable {
     @FXML
     Label hostName, guestName, hostHP, guestHP, hostDamage, guestDamage, round;
+    @FXML
+    Button hostDeploy, guestDeploy;
+    @FXML
+    ProgressBar hostBar, guestBar;
     private cardBlock[] hostLine = new cardBlock[21], guestLine = new cardBlock[21];
     private cardBlock[] guestDeck = new cardBlock[6], hostDeck = new cardBlock[6];
+    private Timeline hostProgressTimeline, guestProgressTimeline;
+
     private cardBlock hostP, guestP;
     @FXML
     ImageView H1, H2, H3, H4, H5, H6, H7, H8, H9, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21,
@@ -77,6 +86,11 @@ public class GameTimeLine implements Initializable {
         hostP = new cardBlock(hostProf, -1, "host");
         guestP = new cardBlock(guestProf, -1, "guest");
 
+        hostBar.setVisible(false);
+        guestBar.setVisible(false);
+        hostDeploy.setVisible(false);
+        guestDeploy.setVisible(false);
+
         scan();
     }
 
@@ -117,7 +131,6 @@ public class GameTimeLine implements Initializable {
             event.consume();
         });
     }
-
     public void deploy(int deckIndex, int lineIndex, String type) {
         int block = lineIndex + 1;
         Card card;
@@ -127,7 +140,10 @@ public class GameTimeLine implements Initializable {
             card = Constants.game.getGuestCards()[deckIndex];
 
         if (card.getClass().equals(Damage_Heal.class)) {
-            Constants.game.deploy("place card " + card.getName() + " in block " + block);
+            if(Constants.game.isHostPlaying())
+                Constants.game.deploy("place card " + card.getName() + " in block " + block,"");
+            else
+                Constants.game.deploy("place card " + card.getName() + " in block " + block,"");
             Constants.game.checkTimeLine();
             scan();
             if(Constants.game.isHostPlaying())
@@ -135,7 +151,8 @@ public class GameTimeLine implements Initializable {
             else
                 Constants.game.setHostPlaying();
         } else {
-            Constants.game.deploy("deploy card " + card.getName());
+            int n=Constants.random.nextInt(5);
+            Constants.game.deploy("deploy card " + card.getName(), String.valueOf(n));
             Constants.game.checkTimeLine();
             scan();
             if(Constants.game.isHostPlaying())
@@ -151,7 +168,6 @@ public class GameTimeLine implements Initializable {
         Scene newScene = new Scene(newPage);
         newScene.getStylesheets().add(getClass().getResource("CSS/Hello.css").toExternalForm());
 
-        // Get the current stage from any node, here using the hostProf image view
         Stage stage = (Stage) hostProf.getScene().getWindow();
 
         stage.setScene(newScene);
@@ -286,7 +302,7 @@ public class GameTimeLine implements Initializable {
 
                     Damage_Heal hostCard = (Damage_Heal) Constants.game.getHostTimeLine()[i].getCard();
                     Constants.guestPlayer.reduceHP(hostCard.getDamage() / hostCard.getDuration());
-                    if(Constants.guestPlayer.getHp()<=0)
+                    if (Constants.guestPlayer.getHp() <= 0)
                         return;
                 }
 
@@ -296,7 +312,7 @@ public class GameTimeLine implements Initializable {
 
                     Damage_Heal guestCard = (Damage_Heal) Constants.game.getGuestTimeLine()[i].getCard();
                     Constants.hostPlayer.reduceHP(guestCard.getDamage() / guestCard.getDuration());
-                    if(Constants.hostPlayer.getHp()<=0)
+                    if (Constants.hostPlayer.getHp() <= 0)
                         return;
                 }
                 hostLine[i].reset();
@@ -312,10 +328,17 @@ public class GameTimeLine implements Initializable {
 
         parallelTransition.setOnFinished(event -> {
             voldy.setVisible(false);
-            if(Constants.hostPlayer.getHp()>0&&Constants.guestPlayer.getHp()>0)
+            hostBar.setVisible(false);
+            guestBar.setVisible(false);
+            hostDeploy.setVisible(false);
+            guestDeploy.setVisible(false);
+
+            hostProgressTimeline.stop();
+            guestProgressTimeline.stop();
+
+            if (Constants.hostPlayer.getHp() > 0 && Constants.guestPlayer.getHp() > 0) {
                 reinitializeGame();
-            else
-            {
+            } else {
                 try {
                     switchScene("PrizePage.fxml");
                 } catch (IOException e) {
@@ -324,8 +347,40 @@ public class GameTimeLine implements Initializable {
             }
         });
 
+        // Show progress bars and buttons
+        hostBar.setVisible(true);
+        guestBar.setVisible(true);
+        hostDeploy.setVisible(true);
+        guestDeploy.setVisible(true);
+
+        hostProgressTimeline = new Timeline(new KeyFrame(Duration.seconds(0.05), event -> {
+            hostBar.setProgress(Math.random());
+        }));
+        hostProgressTimeline.setCycleCount(Timeline.INDEFINITE);
+        hostProgressTimeline.play();
+
+        guestProgressTimeline = new Timeline(new KeyFrame(Duration.seconds(0.05), event -> {
+            guestBar.setProgress(Math.random());
+        }));
+        guestProgressTimeline.setCycleCount(Timeline.INDEFINITE);
+        guestProgressTimeline.play();
+
         parallelTransition.play();
         damageTimeline.play();
+    }
+
+    @FXML
+    public void hostDeploy() {
+        hostProgressTimeline.stop();
+        if(Constants.guestPlayer.getHp()>0)
+            Constants.guestPlayer.reduceHP((int) hostBar.getProgress()*Constants.guestPlayer.getHp());
+    }
+
+    @FXML
+    public void guestDeploy() {
+        guestProgressTimeline.stop();
+        if(Constants.hostPlayer.getHp()>0)
+            Constants.hostPlayer.reduceHP((int) guestBar.getProgress()*Constants.hostPlayer.getHp());
     }
 
     private void reinitializeGame() {
