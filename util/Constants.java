@@ -4,15 +4,21 @@ package util;
 import Model.*;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
+
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Constants {
     public static final User hostPlayer = new User("mahdieh","mhd","email","mmm"), guestPlayer=new User("parnia","rzie","yahoo","ppp");
     public static User loggedInUser;
+    public static User secondUser;
     public static final RegistryMenu registryMenu=new RegistryMenu();
     public static final ProfileMenu profileMenu = new ProfileMenu();
     public static final MainMenu mainMenu = new MainMenu();
@@ -33,6 +39,112 @@ public class Constants {
         Media media = new Media(mediaPath);
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         return mediaPlayer;
+    }
+    public static void getInformationFromFile(){
+        try{
+            File myFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\User Information.txt");
+            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\Game History.txt");
+            Scanner scan = new Scanner(myFile);
+            Scanner historyScanner = new Scanner(gameHistoryFile);
+            ArrayList<User> users = new ArrayList<>();
+            String[] parts;
+            User myUser = new User();
+            while(scan.hasNextLine()){
+                String line = scan.nextLine();
+                if(line.equals("new user:")){
+                    String information = scan.nextLine();
+                    parts = information.split(" ");
+                    User user = new User(parts[0], parts[1], parts[2], parts[3]);
+                    user.setNumberOfQuestion(Integer.parseInt(parts[4]));
+                    user.setAnswer(parts[5]);
+                    user.setCoin(Integer.parseInt(parts[6]));
+                    user.setExp(Integer.parseInt(parts[7]));
+                    user.setHp(Integer.parseInt(parts[8]));
+                    user.setScore(Integer.parseInt(parts[9]));
+                    user.setLevel(Integer.parseInt(parts[10]));
+                    users.add(user);
+                    myUser = user;
+                }
+                else if(line.equals("user damage_heal cards:")){
+                    String cardInformation;
+                    while(true){
+                        cardInformation = scan.nextLine();
+                        if(cardInformation.equals("Done!")) break;
+                        else{
+                            parts = cardInformation.split(" ");
+                            String name = parts[0];
+                            int defenceAttack = Integer.parseInt(parts[1]);
+                            int duration = Integer.parseInt(parts[2]);
+                            int damage = Integer.parseInt(parts[3]);
+                            int upgradeLevel = Integer.parseInt(parts[4]);
+                            Damage_Heal card = new Damage_Heal(name, defenceAttack, duration, damage, upgradeLevel);
+                            myUser.addToDeck(card);
+                        }
+                    }
+                }
+                else if(line.equals("Spell cards:")){
+                    String cardNames;
+                    while(true){
+                        cardNames = scan.nextLine();
+                        if(cardNames.equals("Done!")) break;
+                        else{
+                            Spell spell = new Spell(cardNames);
+                            myUser.addToDeck(spell);
+                        }
+                    }
+                }
+                else if(line.equals("my games:")){
+                    String game;
+                    String guestUsername, date, time, status;
+                    while(true){
+                        game = scan.nextLine();
+                        if(game.equals("Done!")) break;
+                        else{
+                            parts = game.split(" ");
+                            guestUsername = parts[0];
+                            date = parts[1];
+                            time = parts[2];
+                            status = parts[3];
+                            Game myGame = new Game(guestUsername, date, time, status);
+                            myUser.addGamesToGames(myGame);
+                            myUser.addGame(game);
+                        }
+                    }
+                }
+            }
+            while(historyScanner.hasNextLine()){
+                String game = historyScanner.nextLine();
+                registryMenu.addGame(game);
+            }
+            scan.close();
+            historyScanner.close();
+            registryMenu.setUsers(users);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    public static void writeInformationInFile(){
+        System.out.println(registryMenu.getUsers());
+        ArrayList<User> users = registryMenu.getUsers();
+        try{
+            File myFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\User Information.txt");
+            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\Game History.txt");
+            FileWriter historyWriter = new FileWriter(gameHistoryFile);
+            FileWriter writer = new FileWriter(myFile);
+            for(User user : users){
+                String str = user.toString();
+                writer.write(str);
+            }
+            writer.close();
+            for(String game : registryMenu.getGamesHistory()){
+                historyWriter.write(game + '\n');
+            }
+            historyWriter.close();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
     public static final boolean mute=false;
     public static final double volume=1;
@@ -84,21 +196,21 @@ public class Constants {
                     GOBLIN, PATRONUS, FLUFFY)
     );
     public static final Random random=new Random();
-    public static final Image quilin = new Image(Constants.class.getResourceAsStream("/cards/quilin.png"));
-    public static final Image hippogriff= new Image(Constants.class.getResourceAsStream("/cards/hippogriff.png"));
-    public static final Image phonix = new Image(Constants.class.getResourceAsStream("/cards/phonix.png"));
-    public static final Image centaur = new Image(Constants.class.getResourceAsStream("/cards/centaur.png"));
-    public static final Image unicorn = new Image(Constants.class.getResourceAsStream("/cards/unicorn.png"));
-    public static final Image niffler = new Image(Constants.class.getResourceAsStream("/cards/niffler.png"));
-    public static final Image thestral = new Image(Constants.class.getResourceAsStream("/cards/thestral.png"));
-    public static final Image dobby = new Image(Constants.class.getResourceAsStream("/cards/elf.png"));
-    public static final Image deatheator = new Image(Constants.class.getResourceAsStream("/cards/deatheator.png"));
-    public static final Image boggart = new Image(Constants.class.getResourceAsStream("/cards/boggart.png"));
-    public static final Image willow = new Image(Constants.class.getResourceAsStream("/cards/werwolf.png"));
-    public static final Image aragog = new Image(Constants.class.getResourceAsStream("/cards/aragog.png"));
-    public static final Image vampire = new Image(Constants.class.getResourceAsStream("/cards/vampire.png"));
-    public static final Image basillisk = new Image(Constants.class.getResourceAsStream("/cards/basillisk.png"));
-    public static final Image dementor = new Image(Constants.class.getResourceAsStream("/cards/dementor.png"));
+    public static final Image quilin = new Image(Constants.class.getResourceAsStream("/cards/quilin.jpg"));
+    public static final Image hippogriff= new Image(Constants.class.getResourceAsStream("/cards/hippogriff.jpg"));
+    public static final Image phonix = new Image(Constants.class.getResourceAsStream("/cards/phonix.jpg"));
+    public static final Image centaur = new Image(Constants.class.getResourceAsStream("/cards/centaur.jpg"));
+    public static final Image unicorn = new Image(Constants.class.getResourceAsStream("/cards/unicorn.jpg"));
+    public static final Image niffler = new Image(Constants.class.getResourceAsStream("/cards/niffler.jpg"));
+    public static final Image thestral = new Image(Constants.class.getResourceAsStream("/cards/thestral.jpg"));
+    public static final Image dobby = new Image(Constants.class.getResourceAsStream("/cards/elf.jpg"));
+    public static final Image deatheator = new Image(Constants.class.getResourceAsStream("/cards/deatheator.jpg"));
+    public static final Image boggart = new Image(Constants.class.getResourceAsStream("/cards/boggart.jpg"));
+    public static final Image willow = new Image(Constants.class.getResourceAsStream("/cards/werwolf.jpg"));
+    public static final Image aragog = new Image(Constants.class.getResourceAsStream("/cards/aragog.jpg"));
+    public static final Image vampire = new Image(Constants.class.getResourceAsStream("/cards/vampire.jpg"));
+    public static final Image basillisk = new Image(Constants.class.getResourceAsStream("/cards/basillisk.jpg"));
+    public static final Image dementor = new Image(Constants.class.getResourceAsStream("/cards/dementor.jpg"));
     public static final Image peeves = new Image(Constants.class.getResourceAsStream("/cards/peeves.png"));
     public static final Image sectumsempra = new Image(Constants.class.getResourceAsStream("/cards/sectumsempra.png"));
     public static final Image pixie = new Image(Constants.class.getResourceAsStream("/cards/pixie.png"));
@@ -108,7 +220,7 @@ public class Constants {
     public static final Image goblin = new Image(Constants.class.getResourceAsStream("/cards/goblin.png"));
     public static final Image patronus = new Image(Constants.class.getResourceAsStream("/cards/patronus.png"));
     public static final Image fluffy = new Image(Constants.class.getResourceAsStream("/cards/fluffy.png"));
-    public static final Image werwolf = new Image(Constants.class.getResourceAsStream("/cards/werwolf.png"));
+    public static final Image werwolf = new Image(Constants.class.getResourceAsStream("/cards/werwolf.jpg"));
     public static final Image block = new Image(Constants.class.getResourceAsStream("/cards/block.png"));
     public static final Image harryProf = new Image(Constants.class.getResourceAsStream("/cards/harryProf.png"));
     public static final Image ronProf = new Image(Constants.class.getResourceAsStream("/cards/ronProf.png"));
