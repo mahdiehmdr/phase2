@@ -84,7 +84,7 @@
                         <RowConstraints maxHeight="64.66668701171875" minHeight="10.0" prefHeight="38.66668701171875" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#back" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#back" style="-fx-background-color: Black; -fx-background-radius: 100;" text="Back" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
                   <GridPane>
@@ -100,22 +100,22 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#prologue" text="Prologue" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <Button mnemonicParsing="false" onAction="#prologue" style="-fx-background-color: Black; -fx-background-radius: 100;" text="Prologue" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#wondrous" text="Harry's Wondrous World" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <Button mnemonicParsing="false" onAction="#wondrous" style="-fx-background-color: Black; -fx-background-radius: 100;" text="Harry's Wondrous World" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#arrival" text="The Arrival of Baby Harry" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <Button mnemonicParsing="false" onAction="#arrival" style="-fx-background-color: Black; -fx-background-radius: 100;" text="The Arrival of Baby Harry" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#hedwig" text="Hedwig's Theme" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <Button mnemonicParsing="false" onAction="#hedwig" style="-fx-background-color: Black; -fx-background-radius: 100;" text="Hedwig's Theme" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -134,8 +134,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Slider fx:id="volume" min="0.0" max="1.0" value="1.0"  GridPane.columnIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#mute" text="Mute" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <Slider fx:id="volume" max="1.0" min="0.0" style="-fx-background-radius: 100;" value="1.0" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#mute" style="-fx-background-color: white; -fx-background-radius: 100;" text="Mute" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                </children>
             </GridPane>
          </children>
