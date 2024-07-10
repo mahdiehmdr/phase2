@@ -33,7 +33,7 @@ public class User {
         this.coin = 300;
         this.score=10;
     }
-    User(){
+    public User(){
         this.username = " ";
     }
     public void setUsername(String s){this.username=s;}
@@ -190,15 +190,12 @@ public class User {
     }
     public void changeUsername(String username){
         this.username = username;
-        System.out.println("Username changed successfully!\nYour new username is: " + this.username);
     }
     public void changeEmail(String newEmail){
         this.email = newEmail;
-        System.out.println("Email changed successfully!\nYour new email is: " + email);
     }
     public void changeNickname(String newNickname){
         this.nickname = newNickname;
-        System.out.println("Nickname changed successfully!\nYour new nickname is: " + nickname);
     }
     //sort methods:
     public void sortGamesByDateAndTime(){
