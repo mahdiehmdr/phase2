@@ -62,8 +62,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>
           <children>
-            <Button fx:id="doubleBtn" mnemonicParsing="false" onAction="#doubleBtn" prefHeight="40.0" prefWidth="110.0" text="Double" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <Button fx:id="betBtn" mnemonicParsing="false" onAction="#betBtn" prefHeight="40.0" prefWidth="110.0" text="Bet" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="doubleBtn" mnemonicParsing="false" onAction="#doubleBtn" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: BLACK; -fx-background-radius: 100;" text="Double" textFill="WHITE" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="betBtn" mnemonicParsing="false" onAction="#betBtn" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: BLACK; -fx-background-radius: 100;" text="Bet" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
           </children>
         </GridPane>
         <GridPane GridPane.rowIndex="2">
@@ -131,8 +131,8 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="guestAdd" onAction="#guestAdd" GridPane.columnIndex="1" />
-                  <TextField fx:id="hostAdd" onAction="#hostAdd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="guestAdd" onAction="#guestAdd" style="-fx-background-color: Black; -fx-background-radius: 100;" GridPane.columnIndex="1" />
+                  <TextField fx:id="hostAdd" onAction="#hostAdd" style="-fx-background-color: Black; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="1">
@@ -188,8 +188,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="guestChar" onAction="#guestChar" GridPane.columnIndex="1" />
-                  <TextField fx:id="hostChar" onAction="#hostChar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="guestChar" onAction="#guestChar" style="-fx-background-color: Black; -fx-background-radius: 100;" GridPane.columnIndex="1" />
+                  <TextField fx:id="hostChar" onAction="#hostChar" style="-fx-background-color: Black; -fx-background-radius: 100;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
       </children>
