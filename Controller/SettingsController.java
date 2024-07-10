@@ -42,7 +42,7 @@ public class SettingsController implements Initializable {
         Constants.Hedwig.pause();
         Constants.Arrival.pause();
         Constants.Wondrous.pause();
-
+        Constants.mute=false;
         Constants.restartBackGroundMedia();
     }
     @FXML
@@ -51,7 +51,7 @@ public class SettingsController implements Initializable {
         Constants.Hedwig.pause();
         Constants.Arrival.pause();
         Constants.Wondrous.pause();
-
+        Constants.mute=false;
         Constants.restartArrivalMedia();
     }
     @FXML
@@ -60,7 +60,7 @@ public class SettingsController implements Initializable {
         Constants.Hedwig.pause();
         Constants.Arrival.pause();
         Constants.Wondrous.pause();
-
+        Constants.mute=false;
         Constants.restartHedwigMedia();
     }
     @FXML
@@ -69,7 +69,7 @@ public class SettingsController implements Initializable {
         Constants.Hedwig.pause();
         Constants.Arrival.pause();
         Constants.Wondrous.pause();
-
+        Constants.mute=false;
         Constants.restartWondrousMedia();
     }
     @FXML
