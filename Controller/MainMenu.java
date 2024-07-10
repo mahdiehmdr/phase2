@@ -91,6 +91,14 @@ public class MainMenu {
         }
     }
     @FXML
+    public void settings(ActionEvent event) {
+        try {
+            switchScene(event, "Settings.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     public void myProfileBtn(ActionEvent event) {
         try {
             switchScene(event, "ProfilePage.fxml");
