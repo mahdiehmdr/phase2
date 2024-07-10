@@ -88,8 +88,8 @@ public class GameTimeLine implements Initializable {
             enableDragAndDrop(hostDeck[i]);
         }
 
-        hostName.setText(Constants.hostPlayer.getUsername());
-        guestName.setText(Constants.guestPlayer.getUsername());
+        hostName.setText(Constants.loggedInUser.getUsername());
+        guestName.setText(Constants.secondUser.getUsername());
         hostP = new cardBlock(hostProf, -1, "host");
         guestP = new cardBlock(guestProf, -1, "guest");
 
@@ -225,12 +225,12 @@ public class GameTimeLine implements Initializable {
             }
             round.setText("Round: "+String.valueOf(Constants.game.getRound()));
         }
-        hostHP.setText("HP: " + Constants.hostPlayer.getHp());
+        hostHP.setText("HP: " + Constants.loggedInUser.getHp());
         hostDamage.setText("Damage: " + Constants.game.getHostDamage());
-        guestHP.setText("HP: " + Constants.guestPlayer.getHp());
+        guestHP.setText("HP: " + Constants.secondUser.getHp());
         guestDamage.setText("Damage: " + Constants.game.getGuestDamage());
-        hostP.setImage(getCharIm(Constants.hostPlayer.getCharacter()));
-        guestP.setImage(getCharIm(Constants.guestPlayer.getCharacter()));
+        hostP.setImage(getCharIm(Constants.loggedInUser.getCharacter()));
+        guestP.setImage(getCharIm(Constants.secondUser.getCharacter()));
     }
 
     public class cardBlock {
@@ -313,8 +313,8 @@ public class GameTimeLine implements Initializable {
                         !Constants.game.getHostTimeLine()[i].isDestroyed()) {
 
                     Damage_Heal hostCard = (Damage_Heal) Constants.game.getHostTimeLine()[i].getCard();
-                    Constants.guestPlayer.reduceHP(hostCard.getDamage() / hostCard.getDuration());
-                    if (Constants.guestPlayer.getHp() <= 0)
+                    Constants.secondUser.reduceHP(hostCard.getDamage() / hostCard.getDuration());
+                    if (Constants.secondUser.getHp() <= 0)
                         return;
                 }
 
@@ -323,8 +323,8 @@ public class GameTimeLine implements Initializable {
                         !Constants.game.getGuestTimeLine()[i].isDestroyed()) {
 
                     Damage_Heal guestCard = (Damage_Heal) Constants.game.getGuestTimeLine()[i].getCard();
-                    Constants.hostPlayer.reduceHP(guestCard.getDamage() / guestCard.getDuration());
-                    if (Constants.hostPlayer.getHp() <= 0)
+                    Constants.loggedInUser.reduceHP(guestCard.getDamage() / guestCard.getDuration());
+                    if (Constants.loggedInUser.getHp() <= 0)
                         return;
                 }
                 hostLine[i].reset();
@@ -348,7 +348,7 @@ public class GameTimeLine implements Initializable {
             hostProgressTimeline.stop();
             guestProgressTimeline.stop();
 
-            if (Constants.hostPlayer.getHp() > 0 && Constants.guestPlayer.getHp() > 0) {
+            if (Constants.loggedInUser.getHp() > 0 && Constants.secondUser.getHp() > 0) {
                 reinitializeGame();
             } else {
                 try {
@@ -389,15 +389,15 @@ public class GameTimeLine implements Initializable {
     @FXML
     public void hostDeploy() {
         hostProgressTimeline.stop();
-        if(Constants.guestPlayer.getHp()>0)
-            Constants.guestPlayer.reduceHP((int) hostBar.getProgress()*Constants.guestPlayer.getHp());
+        if(Constants.secondUser.getHp()>0)
+            Constants.secondUser.reduceHP((int) hostBar.getProgress()*Constants.secondUser.getHp());
     }
 
     @FXML
     public void guestDeploy() {
         guestProgressTimeline.stop();
-        if(Constants.hostPlayer.getHp()>0)
-            Constants.hostPlayer.reduceHP((int) guestBar.getProgress()*Constants.hostPlayer.getHp());
+        if(Constants.loggedInUser.getHp()>0)
+            Constants.loggedInUser.reduceHP((int) guestBar.getProgress()*Constants.loggedInUser.getHp());
     }
 
     private void reinitializeGame() {
