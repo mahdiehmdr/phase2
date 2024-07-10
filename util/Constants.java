@@ -1,7 +1,11 @@
 
+
 package util;
 
+import Controller.HistoryController;
 import Model.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import java.util.ArrayList;
@@ -16,14 +20,10 @@ import java.util.Scanner;
 
 
 public class Constants {
-    public static final User hostPlayer = new User("mahdieh","mhd","email","mmm"), guestPlayer=new User("parnia","rzie","yahoo","ppp");
     public static User loggedInUser;
     public static User secondUser;
-    public static void l(){hostPlayer.setCharacter("Harry Potter");
-    guestPlayer.setCharacter("Harry Potter");}
     public static final RegistryMenu registryMenu=new RegistryMenu();
     public static final ProfileMenu profileMenu = new ProfileMenu();
-    public static final MainMenu mainMenu = new MainMenu();
     public static final Outputs outputs=new Outputs();
     public static Game game = new Game();
     public static boolean login(String username, String password, Label label){
@@ -139,8 +139,8 @@ public class Constants {
     public static final Image dracoProf = new Image(Constants.class.getResourceAsStream("/cards/dracoProf.png"));
     public static void getInformationFromFile(){
         try{
-            File myFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\Controller\\file.txt");
-            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\Controller\\history.txt");
+            File myFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\User Information.txt");
+            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\Game History.txt");
             Scanner scan = new Scanner(myFile);
             Scanner historyScanner = new Scanner(gameHistoryFile);
             ArrayList<User> users = new ArrayList<>();
@@ -222,11 +222,10 @@ public class Constants {
         }
     }
     public static void writeInformationInFile(){
-        System.out.println(registryMenu.getUsers());
         ArrayList<User> users = registryMenu.getUsers();
         try{
-            File myFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\file.txt");
-            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\history.txt");
+            File myFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\User Information.txt");
+            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\Phase2\\src\\main\\java\\Game History.txt");
             FileWriter historyWriter = new FileWriter(gameHistoryFile);
             FileWriter writer = new FileWriter(myFile);
             for(User user : users){
