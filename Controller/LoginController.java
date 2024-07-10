@@ -32,6 +32,44 @@ public class LoginController {
     @FXML
     Button returnToHome;
     @FXML
+    Button forgotMyPassword;
+    @FXML
+    Label recoveryQuestion;
+    @FXML
+    Label errors;
+    @FXML
+    TextField answer;
+    @FXML
+    Button recoverySubmit;
+    @FXML
+    Button returnToLoginPage;
+    @FXML
+    Button showRecoveryQuestion;
+    static private User stop;
+    @FXML
+    private void handleShowRecoveryButtonAction(){
+        recoveryQuestion.setText(stop.getPasswordRecoveryQuestion());
+    }
+    @FXML
+    private void handleRecoverySubmitButtonAction(){
+        String answer = this.answer.getText();
+        if(stop.trueAnswer(answer)){
+            errors.setText(stop.getPassword());
+        }
+        else{
+            errors.setText("The entered answer is not true, please try again!");
+        }
+    }
+    @FXML
+    private void handleReturnToLoginMenuButtonAction(ActionEvent event){
+        try{
+            switchScene(event, "LoginPage.fxml");
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
     private void handleSubmitButtonAction(ActionEvent event){
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -58,8 +96,25 @@ public class LoginController {
         }
     }
     @FXML
+    private void handleForgotPasswordButtonAction(ActionEvent event){
+        counter = 0;
+        String username = usernameField.getText();
+        if(username.isEmpty()) loginErrors.setText(Constants.outputs.emptyField);
+        else if(Constants.registryMenu.findUserByUsername(username) == null) loginErrors.setText(Constants.outputs.usernameDoesNotExist);
+        else{
+            stop = Constants.registryMenu.findUserByUsername(username);
+            try{
+                switchScene(event, "forgotPassword.fxml");
+            }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
+    }
+    @FXML
     private void handleReturnToHomeButtonAction(ActionEvent event){
         try{
+            Constants.writeInformationInFile();
             switchScene(event, "StarterPage.fxml");
         }
         catch (IOException e){
