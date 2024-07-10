@@ -42,16 +42,31 @@ public class Constants {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         return mediaPlayer;
     }
-    public static final boolean mute=false;
-    public static final double volume=1;
+    public static boolean mute=false;
+    public static double volume;
+    public static MediaPlayer Hedwig=getMediaPlayer("/cards/19 - Hedwig's Theme.mp3");
+    public static MediaPlayer Arrival=getMediaPlayer("/cards/03 - The Arrival of Baby Harry.mp3");
+    public static MediaPlayer Wondrous=getMediaPlayer("/cards/02 - Harry's Wondrous World.mp3");
     public static MediaPlayer BackGround=getMediaPlayer("/cards/01 - Prologue.mp3");
-    public static final MediaPlayer GameBackGround=getMediaPlayer("/cards/16 - The Chess Game.mp3");
-    public static final MediaPlayer Drop=getMediaPlayer("/cards/drop.mp3");
+    public static MediaPlayer GameBackGround=getMediaPlayer("/cards/16 - The Chess Game.mp3");
+    public static MediaPlayer Drop=getMediaPlayer("/cards/drop.mp3");
     public static Media drop=Drop.getMedia();
     public static Media gameBackGroung=GameBackGround.getMedia();
     public static void restartBackGroundMedia(){
         BackGround=getMediaPlayer("/cards/01 - Prologue.mp3");
         BackGround.play();
+    }
+    public static void restartHedwigMedia(){
+        Hedwig=getMediaPlayer("/cards/19 - Hedwig's Theme.mp3");
+        Hedwig.play();
+    }
+    public static void restartArrivalMedia(){
+        Arrival=getMediaPlayer("/cards/03 - The Arrival of Baby Harry.mp3");
+        Arrival.play();
+    }
+    public static void restartWondrousMedia(){
+        Wondrous=getMediaPlayer("/cards/02 - Harry's Wondrous World.mp3");
+        Wondrous.play();
     }
 
 
@@ -210,8 +225,8 @@ public class Constants {
         System.out.println(registryMenu.getUsers());
         ArrayList<User> users = registryMenu.getUsers();
         try{
-            File myFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\Controller\\file.txt");
-            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\Controller\\history.txt");
+            File myFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\file.txt");
+            File gameHistoryFile = new File("C:\\Users\\ASUS\\Desktop\\OOP\\Phase2\\src\\main\\resources\\history.txt");
             FileWriter historyWriter = new FileWriter(gameHistoryFile);
             FileWriter writer = new FileWriter(myFile);
             for(User user : users){
