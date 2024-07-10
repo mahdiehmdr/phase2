@@ -55,6 +55,16 @@ public class RegistryMenu {
     @FXML
     Button showCaptcha;
     @FXML
+    Label randomPass;
+    @FXML
+    TextField randomPasswordConfirmation;
+    @FXML
+    Button randomPasswordSubmit;
+    @FXML
+    Button randomPasswordReturn;
+    @FXML
+    Button showMyPassword;
+    @FXML
     private void returnToStarterMenu(ActionEvent event) {
         try {
             switchScene(event, "StarterPage.fxml");
@@ -63,15 +73,54 @@ public class RegistryMenu {
         }
     }
     @FXML
-    private void handleSignupButtonAction(){
+    private void handleSignupButtonAction(ActionEvent event){
         String username = usernameField.getText();
         String password = passwordField.getText();
         String passwordConfirmation = passwordConfirmationField.getText();
         String email = emailField.getText();
         String nickname = nicknameField.getText();
         boolean whatToDo = Constants.registryMenu.signup(username, password, passwordConfirmation, email, nickname, label);
-        if(whatToDo) {
+        if(whatToDo && !password.equals("random")) {
             openNextPage("ChooseRecoveryQuestionPage.fxml", signup);
+        }
+        if(whatToDo && password.equals("random")){
+            try{
+                switchScene(event, "randomPassword.fxml");
+            }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
+    }
+    @FXML
+    private void handleShowMyPasswordButtonAction(){
+        randomPass.setText(captchaGenerator.generateRandomStringForPassword());
+    }
+    @FXML
+    private void handleRandomPasswordSubmitButtonAction(ActionEvent event){
+        String passwordConfirmation = randomPasswordConfirmation.getText();
+        String password = randomPass.getText();
+        if(passwordConfirmation.equals(password)){
+            Constants.registryMenu.getSignedUpUser().changePassword(password);
+            try{
+                switchScene(event, "ChooseRecoveryQuestionPage.fxml");
+            }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
+        else{
+            randomPasswordConfirmation.clear();
+            randomPass.setText(captchaGenerator.generateRandomStringForPassword());
+        }
+    }
+    @FXML
+    private void handleReturnButtonAction(ActionEvent event){
+        try{
+            switchScene(event, "SignupPage.fxml");
+        }
+        catch (IOException e){
+            System.out.println(e);
         }
     }
     @FXML
