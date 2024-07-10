@@ -65,20 +65,20 @@ public class PrizeMenu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for(int i=0; i<21; i++){
-            if(Constants.hostPlayer.getHp()<Constants.guestPlayer.getHp()){
+            if(Constants.loggedInUser.getHp()<Constants.secondUser.getHp()){
                 if(Constants.game.isBetMood()) {
-                    Constants.guestPlayer.addCoin(Constants.game.getBetCoin());
+                    Constants.secondUser.addCoin(Constants.game.getBetCoin());
                 }
-                Constants.guestPlayer.addCoin(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()));
+                Constants.secondUser.addCoin(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()));
                 if(Constants.game.isBetMood())
                     coin.setText(String.valueOf(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()))+" + "+String.valueOf(Constants.game.getBetCoin()));
                 coin.setText(String.valueOf(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
-                Constants.guestPlayer.addExp(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
+                Constants.secondUser.addExp(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
                 exp.setText(String.valueOf(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()))));
-                Constants.guestPlayer.updateLevel();
-                levelup.setText(String.valueOf(Constants.guestPlayer.getLevel()));
-                Constants.guestPlayer.reduceHP(-200);
-                Constants.hostPlayer.resetHP();
+                Constants.secondUser.updateLevel();
+                levelup.setText(String.valueOf(Constants.secondUser.getLevel()));
+                Constants.secondUser.reduceHP(-200);
+                Constants.loggedInUser.resetHP();
 //                String gameForMainMenuHistory = Constants.hostPlayer.getUsername() + " vs " + Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " winner: " + Constants.guestPlayer.getUsername();
 //                String forWinner = Constants.hostPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " won";
 //                Game win = new Game(Constants.hostPlayer.getUsername(), Constants.game.getDate(), Constants.game.getTime(), "win");
@@ -89,24 +89,24 @@ public class PrizeMenu implements Initializable {
 //                Constants.hostPlayer.addGame(forLoser);
 //                Constants.guestPlayer.addGame(forWinner);
 //                Constants.registryMenu.addGame(gameForMainMenuHistory);
-                prof.setImage(getCharIm(Constants.hostPlayer.getCharacter()));
-                name.setText(Constants.hostPlayer.getUsername());
+                prof.setImage(getCharIm(Constants.loggedInUser.getCharacter()));
+                name.setText(Constants.loggedInUser.getUsername());
                 return;
             }
-            else if(Constants.guestPlayer.getHp()<=Constants.hostPlayer.getHp()){
+            else if(Constants.secondUser.getHp()<=Constants.loggedInUser.getHp()){
                 if(Constants.game.isBetMood()) {
-                    Constants.hostPlayer.addCoin(Constants.game.getBetCoin());
+                    Constants.loggedInUser.addCoin(Constants.game.getBetCoin());
                 }
-                Constants.hostPlayer.addCoin(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()));
+                Constants.loggedInUser.addCoin(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()));
                 if(Constants.game.isBetMood())
                     coin.setText(String.valueOf(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()))+" + "+String.valueOf(Constants.game.getBetCoin()));
                 coin.setText(String.valueOf(5*Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
-                Constants.hostPlayer.addExp(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
+                Constants.loggedInUser.addExp(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage())));
                 exp.setText(String.valueOf(20*(Math.abs(Constants.game.getGuestDamage()-Constants.game.getHostDamage()))));
-                Constants.hostPlayer.updateLevel();
-                levelup.setText(String.valueOf(Constants.guestPlayer.getLevel()));
-                Constants.hostPlayer.reduceHP(-200);
-                Constants.guestPlayer.resetHP();
+                Constants.loggedInUser.updateLevel();
+                levelup.setText(String.valueOf(Constants.secondUser.getLevel()));
+                Constants.loggedInUser.reduceHP(-200);
+                Constants.secondUser.resetHP();
 //                String gameForMainMenuHistory = Constants.hostPlayer.getUsername() + " vs " + Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " winner: " + Constants.hostPlayer.getUsername();
 //                String forLoser = Constants.hostPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " lose";
 //                String forWinner = Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " won";
@@ -117,8 +117,8 @@ public class PrizeMenu implements Initializable {
 //                Constants.hostPlayer.addGame(forWinner);
 //                Constants.guestPlayer.addGame(forLoser);
 //                Constants.registryMenu.addGame(gameForMainMenuHistory);
-                prof.setImage(getCharIm(Constants.guestPlayer.getCharacter()));
-                name.setText(Constants.guestPlayer.getUsername());
+                prof.setImage(getCharIm(Constants.secondUser.getCharacter()));
+                name.setText(Constants.secondUser.getUsername());
                 return;
             }
         }
