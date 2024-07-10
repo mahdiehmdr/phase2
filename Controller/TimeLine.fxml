@@ -395,8 +395,8 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <Button fx:id="hostDeploy" mnemonicParsing="false" onAction="#hostDeploy" text="Deploy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                        <ProgressBar fx:id="hostBar" prefWidth="200.0" progress="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <Button fx:id="hostDeploy" mnemonicParsing="false" onAction="#hostDeploy" style="-fx-background-color: Blue; -fx-background-radius: 100;" text="Deploy" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <ProgressBar fx:id="hostBar" prefWidth="200.0" progress="0.49" style="-fx-border-color: Blue; -fx-background-radius: 100; -fx-border-radius: 100; -fx-background-color: White;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
                </children>
@@ -509,8 +509,8 @@
                               </Label>
                            </children>
                         </GridPane>
-                        <ProgressBar fx:id="guestBar" prefWidth="200.0" progress="0.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                        <Button fx:id="guestDeploy" mnemonicParsing="false" onAction="#guestDeploy" text="Deploy" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <ProgressBar fx:id="guestBar" prefWidth="200.0" progress="0.0" style="-fx-border-color: Blue; -fx-background-color: White; -fx-background-radius: 100; -fx-border-radius: 100;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Button fx:id="guestDeploy" mnemonicParsing="false" onAction="#guestDeploy" style="-fx-background-color: Blue; -fx-background-radius: 100;" text="Deploy" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
                </children>
