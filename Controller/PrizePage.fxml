@@ -111,7 +111,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="16.0" prefWidth="188.0" text="Main Menu" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" prefHeight="16.0" prefWidth="188.0" style="-fx-background-color: Black; -fx-background-radius: 100;" text="Main Menu" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font size="25.0" />
                      </font>
