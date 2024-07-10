@@ -89,8 +89,8 @@ public class PrizeMenu implements Initializable {
 //                Constants.hostPlayer.addGame(forLoser);
 //                Constants.guestPlayer.addGame(forWinner);
 //                Constants.registryMenu.addGame(gameForMainMenuHistory);
-                prof.setImage(getCharIm(Constants.loggedInUser.getCharacter()));
-                name.setText(Constants.loggedInUser.getUsername());
+                prof.setImage(getCharIm(Constants.secondUser.getCharacter()));
+                name.setText(Constants.secondUser.getUsername());
                 return;
             }
             else if(Constants.secondUser.getHp()<=Constants.loggedInUser.getHp()){
@@ -117,8 +117,8 @@ public class PrizeMenu implements Initializable {
 //                Constants.hostPlayer.addGame(forWinner);
 //                Constants.guestPlayer.addGame(forLoser);
 //                Constants.registryMenu.addGame(gameForMainMenuHistory);
-                prof.setImage(getCharIm(Constants.secondUser.getCharacter()));
-                name.setText(Constants.secondUser.getUsername());
+                prof.setImage(getCharIm(Constants.loggedInUser.getCharacter()));
+                name.setText(Constants.loggedInUser.getUsername());
                 return;
             }
         }
