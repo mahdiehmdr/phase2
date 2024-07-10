@@ -31,6 +31,7 @@ public class PrizeMenu implements Initializable {
     ImageView expIm, coinIm, levelupIm, prof;
     @FXML
     public void back(ActionEvent event) {
+        Constants.writeInformationInFile();
         try {
             switchScene(event, "MainPage.fxml");
         } catch (IOException e) {
@@ -47,7 +48,6 @@ public class PrizeMenu implements Initializable {
         stage.setScene(newScene);
         stage.setResizable(true);
         stage.show();
-
         newScene.setOnKeyPressed(this::handleKeyPressed);
     }
 
@@ -79,16 +79,14 @@ public class PrizeMenu implements Initializable {
                 levelup.setText(String.valueOf(Constants.secondUser.getLevel()));
                 Constants.secondUser.reduceHP(-200);
                 Constants.loggedInUser.resetHP();
-//                String gameForMainMenuHistory = Constants.hostPlayer.getUsername() + " vs " + Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " winner: " + Constants.guestPlayer.getUsername();
-//                String forWinner = Constants.hostPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " won";
-//                Game win = new Game(Constants.hostPlayer.getUsername(), Constants.game.getDate(), Constants.game.getTime(), "win");
-//                Constants.guestPlayer.addGamesToGames(win);
-//                String forLoser = Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " lose";
-//                Game lose = new Game(Constants.guestPlayer.getUsername() ,Constants.game.getDate(), Constants.game.getTime(), "lose");
-//                Constants.hostPlayer.addGamesToGames(lose);
-//                Constants.hostPlayer.addGame(forLoser);
-//                Constants.guestPlayer.addGame(forWinner);
-//                Constants.registryMenu.addGame(gameForMainMenuHistory);
+                String forWinner = Constants.loggedInUser.getUsername() + " " + Constants.game.getDateAndTime() + " won";
+                Game win = new Game(Constants.loggedInUser.getUsername(), Constants.game.getDate(), Constants.game.getTime(), "win");
+                Constants.secondUser.addGamesToGames(win);
+                String forLoser = Constants.secondUser.getUsername() + " " + Constants.game.getDateAndTime() + " lose";
+                Game lose = new Game(Constants.secondUser.getUsername() ,Constants.game.getDate(), Constants.game.getTime(), "lose");
+                Constants.loggedInUser.addGamesToGames(lose);
+                Constants.loggedInUser.addGame(forLoser);
+                Constants.secondUser.addGame(forWinner);
                 prof.setImage(getCharIm(Constants.secondUser.getCharacter()));
                 name.setText(Constants.secondUser.getUsername());
                 return;
@@ -107,16 +105,14 @@ public class PrizeMenu implements Initializable {
                 levelup.setText(String.valueOf(Constants.secondUser.getLevel()));
                 Constants.loggedInUser.reduceHP(-200);
                 Constants.secondUser.resetHP();
-//                String gameForMainMenuHistory = Constants.hostPlayer.getUsername() + " vs " + Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " winner: " + Constants.hostPlayer.getUsername();
-//                String forLoser = Constants.hostPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " lose";
-//                String forWinner = Constants.guestPlayer.getUsername() + " " + Constants.game.getDateAndTime() + " won";
-//                Game win = new Game(Constants.guestPlayer.getUsername(), Constants.game.getDate(), Constants.game.getTime(), "win");
-//                Constants.hostPlayer.addGamesToGames(win);
-//                Game lose = new Game(Constants.hostPlayer.getUsername() ,Constants.game.getDate(), Constants.game.getTime(), "lose");
-//                Constants.guestPlayer.addGamesToGames(lose);
-//                Constants.hostPlayer.addGame(forWinner);
-//                Constants.guestPlayer.addGame(forLoser);
-//                Constants.registryMenu.addGame(gameForMainMenuHistory);
+                String forLoser = Constants.loggedInUser.getUsername() + " " + Constants.game.getDateAndTime() + " lose";
+                String forWinner = Constants.secondUser.getUsername() + " " + Constants.game.getDateAndTime() + " won";
+                Game win = new Game(Constants.secondUser.getUsername(), Constants.game.getDate(), Constants.game.getTime(), "win");
+                Constants.loggedInUser.addGamesToGames(win);
+                Game lose = new Game(Constants.loggedInUser.getUsername() ,Constants.game.getDate(), Constants.game.getTime(), "lose");
+                Constants.secondUser.addGamesToGames(lose);
+                Constants.loggedInUser.addGame(forWinner);
+                Constants.secondUser.addGame(forLoser);
                 prof.setImage(getCharIm(Constants.loggedInUser.getCharacter()));
                 name.setText(Constants.loggedInUser.getUsername());
                 return;
