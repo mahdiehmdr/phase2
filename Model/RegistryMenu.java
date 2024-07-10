@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class RegistryMenu {
     private ArrayList<User> users = new ArrayList<>();
-    static private User signedUpUser = null;
+    private User signedUpUser = null;
     final protected Outputs output = new Outputs();
     final static private ArrayList<String> gamesHistory = new ArrayList<>();
     public boolean signup(String username, String password, String passwordRepetition, String email, String nickname, Label label){
@@ -32,19 +32,19 @@ public class RegistryMenu {
                 label.setText(output.wrongEmailFormat);
                 return false;
             }
-            else if(password.length() < 8 || password.length() > 32){
+            else if((password.length() < 8 || password.length() > 32) && !password.equals("random")){
                 label.setText(output.passwordLengthFault);
                 return false;
             }
-            else if(!doesPasswordContainsLowerCase(password) || !doesPasswordContainUpperCase(password)){
+            else if((!doesPasswordContainsLowerCase(password) || !doesPasswordContainUpperCase(password)) && !password.equals("random")){
                 label.setText(output.passwordDoesNotContainUpperOrLowerCase);
                 return false;
             }
-            else if(!doesPasswordContainNumber(password)) {
+            else if(!doesPasswordContainNumber(password) && !password.equals("random")) {
                 label.setText(output.passwordDoesNotContainNumber);
                 return false;
             }
-            else if(!passwordContainsCharacter(password)){
+            else if(!passwordContainsCharacter(password) && !password.equals("random")){
                 label.setText(output.passwordDoesNotContainCharacters);
                 return false;
             }
@@ -53,41 +53,8 @@ public class RegistryMenu {
             users.add(newUser);
             return true;
     }
-    public void signupWithRandomPassword(Matcher matcher, Scanner scanner){
-        if(!matcher.matches()) System.out.println("invalid input!");
-        else{
-            String username = matcher.group(1);
-            String email = matcher.group(2);
-            String nickname = matcher.group(3);
-            if(!isUsernameCorrect(username) || !isUsernameCorrect(nickname)) System.out.println(output.wrongUsernameFormat);
-            else if(!isUsernameNew(username)) System.out.println(output.duplicateUsername);
-            else if(!isEmailCorrect(email)) System.out.println(output.wrongEmailFormat);
-            else{
-                CaptchaGenerator passwordGenerator = new CaptchaGenerator();
-                String password = passwordGenerator.generateRandomStringForPassword();
-                System.out.println(password);
-                System.out.println("Enter password confirmation:");
-                String confirmation = scanner.nextLine();
-                while(!confirmation.equals(password)){
-                    System.out.println("Password confirmation is not true. Please try again:");
-                    confirmation = scanner.nextLine();
-                }
-                User newUser = new User(username, password, email, nickname);
-                signedUpUser = newUser;
-                users.add(newUser);
-                System.out.println(output.successfullyAccount);
-                String chooseSecurityQuestion = "question pick -q (\\S+) -a (\\S+) -c (\\S+)";
-                String command;
-                while(true){
-                    command = scanner.nextLine();
-                    if(command.matches(chooseSecurityQuestion)){
-                        matcher = getCommandMatcher(command, chooseSecurityQuestion);
-                        break;
-                    }
-                    else System.out.println("You have to choose your security question first!");
-                }
-            }
-        }
+    public User getSignedUpUser(){
+        return this.signedUpUser;
     }
     public boolean chooseSecurityQuestion(String questionNumber, String answer, String answerConfirmation, Label label){
         boolean isEverythingTrue = false;
