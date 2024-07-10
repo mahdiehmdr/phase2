@@ -55,6 +55,10 @@ public class GameTimeLine implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Constants.BackGround.pause();
+        Constants.Arrival.pause();
+        Constants.Hedwig.pause();
+        Constants.Wondrous.pause();
+        System.out.println(Constants.mute);
         if(!Constants.mute) {
             mediaPlayer.play();
             mediaPlayer.setVolume(Constants.volume);
