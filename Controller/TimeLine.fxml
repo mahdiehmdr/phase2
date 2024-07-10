@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -285,14 +287,14 @@
             </GridPane>
             <GridPane>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.6666870117188" minWidth="10.0" prefWidth="888.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.3333129882812" minWidth="10.0" prefWidth="312.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="996.6666870117188" minWidth="10.0" prefWidth="830.8333129882812" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.3333129882812" minWidth="10.0" prefWidth="369.16668701171875" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane>
+                  <GridPane prefHeight="254.0" prefWidth="837.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -345,10 +347,11 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <GridPane GridPane.columnIndex="1">
+                  <GridPane prefHeight="254.0" prefWidth="369.0" GridPane.columnIndex="1">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.3333740234375" minWidth="10.0" prefWidth="172.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="131.5" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.3333740234375" minWidth="10.0" prefWidth="137.33331298828125" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.3333740234375" minWidth="10.0" prefWidth="90.16668701171875" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="140.833251953125" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.333251953125" minWidth="0.0" prefWidth="8.6666259765625" />
                     </columnConstraints>
                     <rowConstraints>
@@ -358,17 +361,17 @@
                         <RowConstraints maxHeight="117.5" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="hostProf" fitHeight="100.0" fitWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <ImageView fx:id="hostProf" fitHeight="100.0" fitWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <image>
                               <Image url="@dracoProf.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="hostName" text="host player" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                        <Label fx:id="hostName" text="host player" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </Label>
-                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3">
                           <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="59.3333740234375" minWidth="1.3333740234375" prefWidth="10.6666259765625" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.6666259765625" minWidth="10.0" prefWidth="121.3333740234375" />
@@ -392,20 +395,22 @@
                               </Label>
                            </children>
                         </GridPane>
+                        <Button fx:id="hostDeploy" mnemonicParsing="false" onAction="#hostDeploy" text="Deploy" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                        <ProgressBar fx:id="hostBar" prefWidth="200.0" progress="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
                </children>
             </GridPane>
             <GridPane GridPane.rowIndex="2">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.6666870117188" minWidth="10.0" prefWidth="311.3333435058594" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="889.3333435058594" minWidth="10.0" prefWidth="888.6666564941406" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.6666870117188" minWidth="10.0" prefWidth="354.1666564941406" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="889.3333435058594" minWidth="10.0" prefWidth="846.3333435058594" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <GridPane GridPane.columnIndex="1">
+                  <GridPane prefHeight="255.0" prefWidth="807.0" GridPane.columnIndex="1">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -457,14 +462,16 @@
                   <GridPane>
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="0.0" prefWidth="0.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="158.3333282470703" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.00000762939453" minWidth="10.0" prefWidth="153.6666717529297" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="133.8333282470703" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.00000762939453" minWidth="10.0" prefWidth="83.66667175292969" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.00000762939453" minWidth="10.0" prefWidth="135.66665649414062" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints maxHeight="74.6666259765625" minHeight="0.0" prefHeight="46.16668701171875" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="80.33331298828125" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.5" minHeight="0.0" prefHeight="53.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="235.5" minHeight="10.0" prefHeight="72.33331298828125" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="74.6666259765625" minHeight="0.0" prefHeight="36.83331298828125" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="91.66668701171875" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.5" minHeight="0.0" prefHeight="44.66668701171875" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.5" minHeight="10.0" prefHeight="82.33331298828125" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="235.5" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="23.33331298828125" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
@@ -502,6 +509,8 @@
                               </Label>
                            </children>
                         </GridPane>
+                        <ProgressBar fx:id="guestBar" prefWidth="200.0" progress="0.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Button fx:id="guestDeploy" mnemonicParsing="false" onAction="#guestDeploy" text="Deploy" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                      </children>
                   </GridPane>
                </children>
