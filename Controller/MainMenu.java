@@ -1,17 +1,18 @@
 package Controller;
 
+import Model.Game;
 import Model.User;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import util.Constants;
@@ -38,9 +39,47 @@ public class MainMenu {
     @FXML
     Label label;
     @FXML
+    Button history;
+    //history page:
+    @FXML
+    Button back;
+    @FXML
+    private TableView<Game> gameTable;
+    @FXML
+    TableColumn<Game, String> usernameColumn;
+    @FXML
+    TableColumn<Game, String> dateColumn;
+    @FXML
+    TableColumn<Game, String> timeColumn;
+    @FXML
+    TableColumn<Game, String> winOrLoseColumn;
+    @FXML
+    Button show;
+    private static ObservableList<Game> gameList;
+    @FXML
     private void handleReturnToMainMenuButtonAction(ActionEvent event){
         try{
             switchScene(event, "MainPage.fxml");
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    private void handleShowButtonAction(){
+        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("secondUser"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        winOrLoseColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        gameList = FXCollections.observableArrayList(Constants.loggedInUser.getGames());
+        gameTable.setItems(gameList);
+    }
+    @FXML
+    private void handleBackButtonAction(ActionEvent event){
+        Constants.writeInformationInFile();
+        try{
+            switchScene(event, "MainPage.fxml");
+            Constants.getInformationFromFile();
         }
         catch (IOException e){
             System.out.println(e);
@@ -102,6 +141,7 @@ public class MainMenu {
     public void myProfileBtn(ActionEvent event) {
         try {
             switchScene(event, "ProfilePage.fxml");
+            Constants.getInformationFromFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,10 +155,12 @@ public class MainMenu {
         }
     }
     @FXML
-    public void historyBtn(ActionEvent event) {
-        try {
-            switchScene(event, "HistoryPage.fxml");
-        } catch (IOException e) {
+    private void handleShowHistoryButtonAction(ActionEvent event){
+        try{
+            switchScene(event, "History.fxml");
+            Constants.getInformationFromFile();
+        }
+        catch (IOException e){
             e.printStackTrace();
         }
     }
