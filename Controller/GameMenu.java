@@ -94,7 +94,7 @@ public class GameMenu implements Initializable {
     public void hostAdd(ActionEvent event) throws IOException {
         if(Constants.game.getBetCoinsFromHost(hostAdd.getText()).isEmpty()){
             hostPay=Integer.parseInt(hostAdd.getText());
-            Constants.hostPlayer.addCoin(-1*hostPay);
+            Constants.loggedInUser.addCoin(-1*hostPay);
             Constants.game.addBetToCoin(guestPay);
             if(hostPay!=0&&guestPay!=0&&Constants.game.getBetCoinsFromHost(hostAdd.getText()).isEmpty())
                 chooseChars();
@@ -106,7 +106,7 @@ public class GameMenu implements Initializable {
     public void guestAdd(ActionEvent event) throws IOException {
         if(Constants.game.getBetCoinsFromGuest(guestAdd.getText()).isEmpty()){
             guestPay=Integer.parseInt(guestAdd.getText());
-            Constants.guestPlayer.addCoin(-1*guestPay);
+            Constants.secondUser.addCoin(-1*guestPay);
             Constants.game.addBetToCoin(guestPay);
             if(hostPay!=0&&guestPay!=0&&Constants.game.getBetCoinsFromGuest(guestAdd.getText()).isEmpty())
                 chooseChars();
@@ -175,7 +175,6 @@ public class GameMenu implements Initializable {
         guestCharacter=null;
         error.setText("");
         bet=false;
-        Constants.hostPlayer.setUsername("Not Mahdieh");
 //        hostPlayer=new User("mahdieh","mhd","email","mmm");
 //        guestPlayer=new User("parnia","rzie","yahoo","ppp");
     }
